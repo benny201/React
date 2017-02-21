@@ -99,12 +99,55 @@ function sum(a, b) {
   return a + b;
 }
 ```
+* 设置pros的属性要求：
+```JavaScript
+
+设置为必需的，而且必须为字符串
+BodyIndex.propTypes = {
+    hi: React.PropTypes.string.isRequired
+};
+
+设置默认的default，以防止父组件不传
+BodyIndex.defaultProps = defaultProps;
+```
+* 将父组件的pros传给自己的儿子，即儿子拿到祖先的pros
+```JavaScript
+{...this.pros}
+```
+## 组件的Refs
+主要是用来进行一些原生的html DOM的操作。
+```JavaScript
+//first
+先设置ID，然后用DOM的操作来实现
+let mySubmitButton = document.getElementById("submitButton");
+ReactDOM.findDOMNode(mySubmitButton).style.color = "red";
+
+//second
+设置ref属性，然后使用this.refs.xxx去定位
+console.log(this.refs.submitButton);
+this.refs.submitButton.style.color = "red";
+```
+* `Refs是访问到组件内部的DOM节点唯一可靠的方法`。
+* 组件销毁后会自动销毁
+* 不要在render货者render之前对Refs调用
+* 不要滥用refs（违背了用state改变页面的准则）
+
+## Mixins
+* 进行组件间的共享
+
+
+
+
 ## React State
 * state 只会管理自身的class, 不污染其他的模块 -> this.state
 * 在constructor()中构造this.state
 * setState()更新state
 * 自身的属性: React components can have state by setting this.state in the constructor, which should be considered private to the component.
 * `this.setState()` to schedule updates to the component local state: `Do Not Modify State Directly`
+
+## 数据绑定
+* 向父组件传递参数
+* 使用bind绑定方法，如果用箭头方法来写则不用`()=>{}`
 
 
 ## Handling Events in React
