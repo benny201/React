@@ -135,7 +135,35 @@ this.refs.submitButton.style.color = "red";
 ## Mixins
 * 进行组件间的共享
 
+## 内联样式
+* 在render（）内可以用原生css自定义一些样式，但是要注意样式名字
+* class -> className
+### 内联样式的表达式
+```JavaScript
+"padding-top": (this.state.miniHeader) ?  "3px" : "15px",
+paddingBottom: (this.state.miniHeader) ?  "3px" : "15px"
+```
 
+## CSS模块化
+使用css-loader 以及 style-loader使得css有模块化的能力，可以在js直接插入css
+```JavaScript
+var footerCss = require('../../css/footer.css');
+```
+然后在JSX中调用style：
+```JavaScript
+<footer className={footerCss.miniFooter}>
+    <h1>这里是尾部!!!</h1>
+</footer>
+```
+在css的定义中还可以加入：
+```CSS
+:local(.classname){};默认是local的
+或者
+:global(.classname){};可以给全局用
+```
+
+## CSS转JSX
+* `css to react`: http://staxmanade.com/CssToReact/
 
 
 ## React State
