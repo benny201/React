@@ -211,13 +211,5 @@ function ActionLink() {
 ```
 
 
-### 多组件嵌套
-* 分组件创建js
-
-
-
-
-## React的生命周期
-
 
 
